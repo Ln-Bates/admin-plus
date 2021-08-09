@@ -13,18 +13,22 @@
 </template>
 
 <script>
-import { table } from 'utils/helper';
+import {
+  table,
+  form,
+  filter
+} from 'helper';
 export default {
   name: 'app',
   mounted() {
-    console.log(table);
+    console.log(table, form, filter);
   }
 };
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

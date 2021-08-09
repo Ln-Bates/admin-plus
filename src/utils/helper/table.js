@@ -1,17 +1,12 @@
 import { baseProps } from './base';
-
+import { TABLE_TYPES } from '../constant';
 function generateTableProp(show = true, question = '', config = {}) {
   return { show, question, config };
 }
 
-const keys = [
-  'default', 'long', 'switch',
-  'slot', 'image', 'btns'
-];
-
 const tableHelper = {};
 
-keys.forEach(type => {
+TABLE_TYPES.forEach(type => {
   /**
    * 
    * @param {String} label 属性名
