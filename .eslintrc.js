@@ -43,7 +43,7 @@ module.exports = {
     'vue/v-on-style': ['error', 'shorthand'],
     // 多个属性的元素应该分多行撰写，每个属性一行（改为单行最多允许存在三个属性）
     'vue/max-attributes-per-line': ['error', {
-      'singleline': 2,
+      'singleline': 1,
       'multiline': {
         max: 1,
         allowFirstLine: false
