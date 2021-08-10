@@ -1,16 +1,27 @@
 <template>
-  <div class="view-container">
+  <div
+    v-loading="loading"
+    class="view"
+  >
     <div
       :class="{'has-footer': hasFooter}"
-      class="content-container"
+      class="view-content"
     >
-      <slot />
+      <el-scrollbar style="height: 100%;">
+        <slot />
+      </el-scrollbar>
     </div>
     <div
       v-if="hasFooter"
-      class="footer-bar"
+      class="view-footer"
     >
-      <slot name="footer-bar" />
+      <el-button
+        v-if="showHandle"
+        @click="handleCancel"
+      >
+        返回
+      </el-button>
+      <slot name="slot-footer" />
     </div>
     <slot name="popup" />
   </div>
@@ -18,9 +29,29 @@
 
 <script>
 export default {
+  name: 'base-view',
+  props: {
+    showHandle: {
+      type: Boolean,
+      default: true
+    },
+    isRouter: {
+      type: Boolean,
+      default: true
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     hasFooter() {
-      return !!this.$slots['footer-bar'];
+      return !!this.$slots['slot-footer'] || this.showHandle;
+    }
+  },
+  methods: {
+    handleCancel() {
+      this.$router.back();
     }
   }
 };
@@ -28,9 +59,4 @@ export default {
 
 <style lang="scss" scoped>
 @import './style.scss';
-
-.simple-view {
-  border-radius: $radius;
-  background: #fff;
-}
 </style>

@@ -1,0 +1,75 @@
+// 圆角
+$radius: 4px;
+
+/*==============================  Theme Start ==============================*/
+
+/*=============== Colors Start ===============*/
+// 主色
+$primary: #1989fa;
+// 提示性色
+$danger: #eb3937;
+// tag标签色
+$waring: #e6a23c;
+// 大标题
+$color-title: #1a1a1a;
+// 正文
+$color-desc: #333;
+// 次要文本
+$color-desc-sub: #666;
+// 提示
+$color-prompt: #b3b3b3;
+// 边框色 - 默认
+$border-color-default: #ebeef5; //#d9d9d9;
+// 边框色 - active
+$border-color-active: $primary;
+// 边框色 - danger
+$border-color-danger: $danger;
+// 分割线
+$border-color-split: #ebeef5;
+// 主体颜色
+$body: #edf1f5;
+// 主体颜色
+$body-other: #edf1f5;
+// 列表悬浮
+$table-row-hover: $body-other;
+// 弹框 - 异常
+$alert-color-danger-border: #eb3937;
+$alert-color-danger-fill: #eb3937;
+$alert-color-danger-font: #fff;
+// 弹框 - 操作提示
+$alert-color-prompt-border: #ed575d;
+$alert-color-prompt-fill: #ffeeee;
+$alert-color-prompt-font: #ff6969;
+// 弹框 - 成功
+$alert-color-success-border: #37cc86;
+$alert-color-success-fill: #37cc86;
+$alert-color-success-font: #fff;
+/*=============== Colors End =================*/
+
+/*=============== Font Start ===============*/
+// 字号最大值
+$font-max: 42px;
+// 标题字号
+$font-big: 20px;
+// 页内标题 菜单栏
+$font-middle: 16px;
+// 正文及按钮
+$font-small: 14px;
+// 提示文案
+$font-mini: 12px;
+/*=============== Font End =================*/
+
+/*=============== Size Start ===============*/
+// 按钮组间距
+$size-mini: 4px;
+// 水平 - 紧凑
+$size-small: 8px;
+// 水平 - 平级关系, 垂直 - 紧凑
+$size-middle: 16px;
+// 水平/垂直 - 组与组 / 疏远区分
+$size-big: 24px;
+// 疏远
+$size-max: 32px;
+/*=============== Size End =================*/
+
+/*==============================  Theme End ==================================*/
