@@ -29,20 +29,38 @@ export default {
         },
         msg2: 'o o o '
       },
-      config: {
-        list: [
-          [
-            form.input('测试1', 'base.name'),
-            form.input('测试2', 'base.age')
-          ],
-          form.input('测试3', 'msg'),
-          [
-            form.input('测试4', 'more.name'),
-            form.input('测试5', 'more.age'),
-            form.input('测试5', 'msg2')
+      config: [
+        {
+          title: '标题测试',
+          list: [
+            [
+              form.input('测试1', 'base.name'),
+              form.input('测试2', 'base.age')
+            ],
+            form.input('测试3', 'msg'),
+            [
+              form.input('测试4', 'more.name'),
+              form.input('测试5', 'more.age'),
+              form.input('测试5', 'msg2')
+            ]
           ]
-        ]
-      }
+        },
+        {
+          title: '标题测试',
+          list: [
+            [
+              form.input('测试1', 'base.name'),
+              form.input('测试2', 'base.age')
+            ],
+            form.input('测试3', 'msg'),
+            [
+              form.input('测试4', 'more.name'),
+              form.input('测试5', 'more.age'),
+              form.input('测试5', 'msg2')
+            ]
+          ]
+        }
+      ]
     };
   },
   methods: {

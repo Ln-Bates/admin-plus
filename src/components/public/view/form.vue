@@ -3,35 +3,48 @@
     <el-form
       :inline="true"
       :model="val"
-      class="demo-form-inline"
     >
-      <div
-        v-for="(item, index) in config.list"
-        :key="item.prop || index"
-      >
-        <template v-if="Array.isArray(item)">
-          <el-form-item
-            v-for="groupItem in item"
-            :key="groupItem.prop"
-            :label="groupItem.label"
+      <template v-for="(group, index) in config">
+        <div
+          :key="index"
+          class="form-group"
+        >
+          <el-divider
+            v-if="group.title"
+            content-position="left"
           >
-            <component
-              v-model="val"
-              :is="`form-${groupItem.type}`"
-              :path="groupItem.prop"
-            />
-          </el-form-item>
-        </template>
-        <template v-else>
-          <el-form-item :label="item.label">
-            <component
-              v-model="val"
-              :is="`form-${item.type}`"
-              :path="item.prop"
-            />
-          </el-form-item>
-        </template>
-      </div>
+            {{group.title}}
+          </el-divider>
+          <div
+            v-for="(item, index) in group.list"
+            :key="index"
+            class="form-row"
+          >
+            <template v-if="Array.isArray(item)">
+              <el-form-item
+                v-for="row in item"
+                :key="row.prop"
+                :label="row.label"
+              >
+                <component
+                  v-model="val"
+                  :is="`form-${row.type}`"
+                  :path="row.prop"
+                />
+              </el-form-item>
+            </template>
+            <template v-else>
+              <el-form-item :label="item.label">
+                <component
+                  v-model="val"
+                  :is="`form-${item.type}`"
+                  :path="item.prop"
+                />
+              </el-form-item>
+            </template>
+          </div>
+        </div>
+      </template>
     </el-form>
     <template #slot-footer>
       <template v-if="showDefaultHandle">
@@ -73,8 +86,8 @@ export default {
   mixins: [TwoWay],
   props: {
     config: {
-      type: Object,
-      default: () => ({})
+      type: Array,
+      default: () => []
     }
   },
   computed: {
