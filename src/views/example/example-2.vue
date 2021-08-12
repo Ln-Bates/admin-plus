@@ -1,7 +1,9 @@
 <template>
   <form-view
     v-model="model"
-    :config="config"
+    :options="options"
+    :rules="rules"
+    :request="request"
   >
   </form-view>
 </template>
@@ -29,7 +31,7 @@ export default {
         },
         msg2: 'o o o '
       },
-      config: [
+      options: [
         {
           title: '标题测试',
           list: [
@@ -60,14 +62,24 @@ export default {
             ]
           ]
         }
-      ]
+      ],
+      rules: {
+        msg: [
+          { required: true }
+        ]
+      }
     };
   },
   methods: {
-    test() {
+    httpTest() {
       return new Promise(resolve => {
-        resolve();
+        setTimeout(resolve, 2000);
+      }).then(res => {
+        console.log(res);
       });
+    },
+    request() {
+      return this.httpTest();
     }
   }
 };
