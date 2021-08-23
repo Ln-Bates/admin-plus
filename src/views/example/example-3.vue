@@ -16,7 +16,8 @@
 <script>
 import TableView from 'public/view/table';
 import {
-  table
+  table,
+  filter
 } from 'helper';
 export default {
   components: {
@@ -27,16 +28,20 @@ export default {
       tableOptions: {
         selection: true,
         columns: [
-          table.default('测试', 'name')
+          table.default('测试', 'name'),
+          table.default('测试2', 'path.test')
+        ],
+        filters: [
+          filter.input('测试', 'name')
         ],
         config: {}
       },
       tableData: {
         data: [
-          { name: '测试1', id: 1 },
-          { name: '测试2', id: 2 },
-          { name: '测试3', id: 3 },
-          { name: '测试4', id: 4 }
+          { name: '测试1', id: 1, path: { test: '嵌套1' } },
+          { name: '测试2', id: 2, path: { test: '嵌套2' } },
+          { name: '测试3', id: 3, path: { test: '嵌套3' } },
+          { name: '测试4', id: 4, path: { test: '嵌套4' } }
         ],
         total: 4
       },

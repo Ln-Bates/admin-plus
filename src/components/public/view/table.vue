@@ -9,7 +9,12 @@
     >
       自定义
     </div>
-    <div class="container filter">过滤</div>
+    <div class="container filter">
+      <filters
+        v-model="val.filter"
+        :filters="tableOptions.filters"
+      />
+    </div>
     <div
       v-if="showHandle"
       class="container handle"
@@ -48,6 +53,7 @@
 
 import BaseView from './base';
 import DataTable from '../data-table/index';
+import Filters from '../filter/index.vue';
 import Pagination from '../pagination/index';
 import TwoWay from 'mixins/two-way';
 import { PAGE_SIZES, PAGE_NUM_KEY, PAGE_SIZE_KEY } from 'constant';
@@ -55,6 +61,7 @@ export default {
   components: {
     BaseView,
     DataTable,
+    Filters,
     Pagination
   },
   mixins: [TwoWay],
@@ -108,6 +115,9 @@ export default {
         });
       });
     }
+  },
+  mounted() {
+    console.log(this.tableOptions);
   }
 };
 </script>

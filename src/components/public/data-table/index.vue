@@ -137,6 +137,9 @@
 // import FormSwitch from '../form-switch';
 const SELECTION_EVENT = 'selection';
 import TwoWay from 'mixins/two-way';
+import {
+  get as _get
+} from 'lodash/object';
 
 export default {
   name: 'data-table',
@@ -204,6 +207,12 @@ export default {
     }
   },
   methods: {
+    getColumnVal(row, column) {
+      if (column.prop.split('.').length > 1) {
+        return _get(row, column.prop);
+      }
+      return row[column.prop];
+    },
     /**
      * 触发选中事件 记忆模式专用
      */

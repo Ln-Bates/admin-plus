@@ -1,5 +1,8 @@
 <template>
-  <el-input v-model="val" />
+  <el-input
+    v-model="val"
+    v-bind="$attrs"
+  />
 </template>
 
 <script>
